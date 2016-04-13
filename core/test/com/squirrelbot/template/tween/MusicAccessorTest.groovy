@@ -8,7 +8,7 @@ import spock.lang.Specification
  */
 class MusicAccessorTest extends Specification {
 
-	def "returns number of values"()
+	def "test get returns number of values"()
 	{
 		setup:
 		MusicAccessor accessor = new MusicAccessor()
@@ -20,7 +20,7 @@ class MusicAccessorTest extends Specification {
 		accessor.getValues(music, MusicAccessor.VOLUME, returnData) == 1
 	}
 
-	def "get values gets volume"()
+	def "test get values gets volume"()
 	{
 		setup:
 		MusicAccessor accessor = new MusicAccessor()
@@ -39,7 +39,7 @@ class MusicAccessorTest extends Specification {
 		volume << [0, 0.5f, 1]
 	}
 
-	def "set values sets volume"()
+	def "test set values sets volume"()
 	{
 		setup:
 		MusicAccessor accessor = new MusicAccessor()

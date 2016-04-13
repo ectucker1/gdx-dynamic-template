@@ -1,6 +1,11 @@
 package com.squirrelbot.template.metaprogramming
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.math.Vector2
+import com.squirrelbot.template.components.PositionComponent
+import com.squirrelbot.template.state.State
 import dorkbox.tweenengine.Tween
 import spock.lang.Specification
 
@@ -9,16 +14,16 @@ import spock.lang.Specification
  */
 class TweenMethodsTest extends Specification {
 
-	def "test mthods added"()
+	def "test methods added"()
 	{
 		setup:
-		Tween tween = Mock(Tween)
+		Tween tween = GroovyMock(Tween)
 
 		when:
 		TweenMethods.addToTween()
 
 		then:
-		tween.metaClass.respondsTo(tween, "switchState", String)
+		Tween.metaClass.respondsTo(tween, "switchState", State)
 	}
 
 	def "test accessors registered"()

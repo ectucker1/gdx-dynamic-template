@@ -6,9 +6,10 @@ import spock.lang.Specification
 /**
  * Created by Ethan on 4/12/2016.
  */
-class Vector2AccesorTest extends Specification {
+class Vector2AccessorTest extends Specification {
 
-	def "returns number of values"()
+
+	def "test get returns number of values"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
@@ -20,13 +21,13 @@ class Vector2AccesorTest extends Specification {
 		accessor.getValues(vector, type, returnData) == number
 
 		where:
-		type               | number
-		Vector2Accessor.X  | 1
-		Vector2Accessor.X  | 1
+		type | number
+		Vector2Accessor.X | 1
+		Vector2Accessor.X | 1
 		Vector2Accessor.XY | 2
 	}
 
-	def "get X values equal"()
+	def "test get X values equal"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
@@ -45,7 +46,7 @@ class Vector2AccesorTest extends Specification {
 		x << [0, 1, -1]
 	}
 
-	def "get Y values equal"()
+	def "test get Y values equal"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
@@ -64,7 +65,7 @@ class Vector2AccesorTest extends Specification {
 		y << [0, 1, -1]
 	}
 
-	def "get XY values equal"()
+	def "test get XY values equal"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
@@ -86,12 +87,16 @@ class Vector2AccesorTest extends Specification {
 		y << [0, 1, -1, 1, -1]
 	}
 
-	def "set values sets X value"()
+	def "test set values sets X value"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
 
-		Vector2 vector = new Vector2(0, 0)
+		Vector2 vector = Stub(Vector2) {
+			setX(_) >> { float x ->
+				it.x >> x
+			}
+		}
 		float[] newData = new float[2]
 
 		when:
@@ -105,12 +110,16 @@ class Vector2AccesorTest extends Specification {
 		x << [0, 1, -1]
 	}
 
-	def "set values sets Y value"()
+	def "test set values sets Y value"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
 
-		Vector2 vector = new Vector2(0, 0)
+		Vector2 vector = Stub(Vector2) {
+			setY(_) >> { float y ->
+				it.y >> y
+			}
+		}
 		float[] newData = new float[2]
 
 		when:
@@ -124,12 +133,19 @@ class Vector2AccesorTest extends Specification {
 		y << [0, 1, -1]
 	}
 
-	def "set values sets XY value"()
+	def "test set values sets XY value"()
 	{
 		setup:
 		Vector2Accessor accessor = new Vector2Accessor()
 
-		Vector2 vector = new Vector2(0, 0)
+		Vector2 vector = Stub(Vector2) {
+			setX(_) >> { float x ->
+				it.x >> x
+			}
+			setY(_) >> { float y ->
+				it.y >> y
+			}
+		}
 		float[] newData = new float[2]
 
 		when:

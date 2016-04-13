@@ -4,13 +4,13 @@ import com.badlogic.gdx.graphics.Color
 import dorkbox.tweenengine.TweenAccessor
 
 /**
- * Created by Ethan on 4/12/2016.
+ * Created by Ethan on 4/13/2016.
  */
-class ColorAccesor implements TweenAccessor<Color> {
+class ColorAccessor implements TweenAccessor<Color> {
 
 	public static final int R= 1
 	public static final int G = 2
-  public static final int B = 3
+	public static final int B = 3
 	public static final int RGB = 4
 
 	@Override
@@ -22,13 +22,13 @@ class ColorAccesor implements TweenAccessor<Color> {
 			case G:
 				returnValues[0] = target.g
 				return 1
-      case B:
-        returnValues[0] = target.b
-        return 1
+			case B:
+				returnValues[0] = target.b
+				return 1
 			case RGB:
 				returnValues[0] = target.r
 				returnValues[1] = target.g
-        returnValues[2] = target.b
+				returnValues[2] = target.b
 				return 3
 			default:
 				assert false
@@ -45,13 +45,13 @@ class ColorAccesor implements TweenAccessor<Color> {
 			case G:
 				target.g = newValues[0]
 				break
-      case B:
-  			target.b = newValues[0]
-  			break
+			case B:
+				target.b = newValues[0]
+				break
 			case RGB:
 				target.r = newValues[0]
 				target.g = newValues[1]
-        target.b = newValues[2]
+				target.b = newValues[2]
 				break
 			default:
 				assert false

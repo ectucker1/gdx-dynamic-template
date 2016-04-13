@@ -8,7 +8,7 @@ import spock.lang.Specification
  */
 class PositionComponentAccessorTest extends Specification {
 
-	def "returns number of values"()
+	def "test get returns number of values"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
@@ -20,13 +20,13 @@ class PositionComponentAccessorTest extends Specification {
 		accessor.getValues(component, type, returnData) == number
 
 		where:
-		type                         | number
-		PositionComponentAccessor.X  | 1
-		PositionComponentAccessor.X  | 1
+		type | number
+		PositionComponentAccessor.X | 1
+		PositionComponentAccessor.X | 1
 		PositionComponentAccessor.XY | 2
 	}
 
-	def "get X values equal"()
+	def "test get X values equal"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
@@ -45,7 +45,7 @@ class PositionComponentAccessorTest extends Specification {
 		x << [0, 1, -1]
 	}
 
-	def "get Y values equal"()
+	def "test get Y values equal"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
@@ -64,7 +64,7 @@ class PositionComponentAccessorTest extends Specification {
 		y << [0, 1, -1]
 	}
 
-	def "get XY values equal"()
+	def "test get XY values equal"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
@@ -86,12 +86,16 @@ class PositionComponentAccessorTest extends Specification {
 		y << [0, 1, -1, 1, -1]
 	}
 
-	def "set values sets X value"()
+	def "test set values sets X value"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
-		PositionComponent component = new PositionComponent(0, 0)
+		PositionComponent component = Stub(PositionComponent) {
+			setX(_) >> { float x ->
+				it.x >> x
+			}
+		}
 		float[] newData = new float[2]
 
 		when:
@@ -105,12 +109,16 @@ class PositionComponentAccessorTest extends Specification {
 		x << [0, 1, -1]
 	}
 
-	def "set values sets Y value"()
+	def "test set values sets Y value"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
-		PositionComponent component = new PositionComponent(0, 0)
+		PositionComponent component = Stub(PositionComponent) {
+			setY(_) >> { float y ->
+				it.y >> y
+			}
+		}
 		float[] newData = new float[2]
 
 		when:
@@ -124,12 +132,19 @@ class PositionComponentAccessorTest extends Specification {
 		y << [0, 1, -1]
 	}
 
-	def "set values sets XY value"()
+	def "test set values sets XY value"()
 	{
 		setup:
 		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
-		PositionComponent component = new PositionComponent(0, 0)
+		PositionComponent component = Stub(PositionComponent) {
+			setX(_) >> { float x ->
+				it.x >> x
+			}
+			setY(_) >> { float y ->
+				it.y >> y
+			}
+		}
 		float[] newData = new float[2]
 
 		when:
@@ -145,5 +160,5 @@ class PositionComponentAccessorTest extends Specification {
 		x << [0, 1, 1, -1, -1]
 		y << [0, 1, -1, 1, -1]
 	}
-
+	
 }

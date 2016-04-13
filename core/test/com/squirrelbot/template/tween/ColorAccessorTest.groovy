@@ -4,17 +4,17 @@ import com.badlogic.gdx.graphics.Color
 import spock.lang.Specification
 
 /**
- * Created by Ethan on 4/12/2016.
+ * Created by Ethan on 4/13/2016.
  */
 class ColorAccessorTest extends Specification {
 
-	def "test returns number of values"()
+	def "test get returns number of values"()
 	{
 		setup:
 		ColorAccessor accessor = new ColorAccessor()
 
 		Color color = Mock(Color)
-		float[] returnData = new float[2]
+		float[] returnData = new float[3]
 
 		expect:
 		accessor.getValues(color, type, returnData) == number
@@ -23,7 +23,7 @@ class ColorAccessorTest extends Specification {
 		type | number
 		ColorAccessor.R | 1
 		ColorAccessor.G | 1
-    ColorAccessor.B | 1
+		ColorAccessor.B | 1
 		ColorAccessor.RGB | 3
 	}
 
@@ -46,7 +46,7 @@ class ColorAccessorTest extends Specification {
 		r << [0, 0.5f, 1]
 	}
 
-  def "test get G values equal"()
+	def "test get G values equal"()
 	{
 		setup:
 		ColorAccessor accessor = new ColorAccessor()
@@ -65,24 +65,24 @@ class ColorAccessorTest extends Specification {
 		g << [0, 0.5f, 1]
 	}
 
-  def "test get B values equal"()
-  {
-    setup:
-    ColorAccessor accessor = new ColorAccessor()
+	def "test get B values equal"()
+	{
+		setup:
+		ColorAccessor accessor = new ColorAccessor()
 
-    Color color = Mock(Color)
-    float[] returnData = new float[3]
+		Color color = Mock(Color)
+		float[] returnData = new float[3]
 
-    when:
-    color.b = b
-    accessor.getValues(color, ColorAccessor.B, returnData)
+		when:
+		color.b = b
+		accessor.getValues(color, ColorAccessor.B, returnData)
 
-    then:
-    returnData[0] == b
+		then:
+		returnData[0] == b
 
-    where:
-    b << [0, 0.5f, 1]
-  }
+		where:
+		b << [0, 0.5f, 1]
+	}
 
 	def "test get RGB values equal"()
 	{
@@ -95,17 +95,17 @@ class ColorAccessorTest extends Specification {
 		when:
 		color.r = r
 		color.g = g
-    color.b = b
+		color.b = b
 		accessor.getValues(color, ColorAccessor.RGB, returnData)
 
 		then:
 		returnData[0] == r
 		returnData[1] == g
-    returnData[2] == b
+		returnData[2] == b
 
 		where:
 		r << [0, 0.5f, 1]
-    g << [1, 0, 0.5f]
+		g << [1, 0, 0.5f]
 		b << [0.5f, 1, 0]
 	}
 
@@ -132,51 +132,51 @@ class ColorAccessorTest extends Specification {
 		r << [0, 0.5f, 1]
 	}
 
-  def "test set values sets G value"()
-  {
-    setup:
-    ColorAccessor accessor = new ColorAccessor()
+	def "test set values sets G value"()
+	{
+		setup:
+		ColorAccessor accessor = new ColorAccessor()
 
-    Color color = Stub(Color) {
-      setG(_) >> { float g ->
-        it.g >> g
-      }
-    }
-    float[] newData = new float[3]
+		Color color = Stub(Color) {
+			setG(_) >> { float g ->
+				it.g >> g
+			}
+		}
+		float[] newData = new float[3]
 
-    when:
-    newData[0] = g
-    accessor.setValues(color, ColorAccessor.G, newData)
+		when:
+		newData[0] = g
+		accessor.setValues(color, ColorAccessor.G, newData)
 
-    then:
-    color.g == g
+		then:
+		color.g == g
 
-    where:
-    g << [0, 0.5f, 1]
-  }
+		where:
+		g << [0, 0.5f, 1]
+	}
 
-  def "test set values sets B value"()
-  {
-    setup:
-    ColorAccessor accessor = new ColorAccessor()
+	def "test set values sets B value"()
+	{
+		setup:
+		ColorAccessor accessor = new ColorAccessor()
 
-    Color color = Stub(Color) {
-      setB(_) >> { float b ->
-        it.b >> b
-      }
-    }
-    float[] newData = new float[3]
+		Color color = Stub(Color) {
+			setB(_) >> { float b ->
+				it.b >> b
+			}
+		}
+		float[] newData = new float[3]
 
-    when:
-    newData[0] = b
-    accessor.setValues(color, ColorAccessor.B, newData)
+		when:
+		newData[0] = b
+		accessor.setValues(color, ColorAccessor.B, newData)
 
-    then:
-    color.b == b
+		then:
+		color.b == b
 
-    where:
-    b << [0, 0.5f, 1]
-  }
+		where:
+		b << [0, 0.5f, 1]
+	}
 
 	def "test set values sets RGB value"()
 	{
@@ -187,29 +187,29 @@ class ColorAccessorTest extends Specification {
 			setR(_) >> { float r ->
 				it.r >> r
 			}
-      setG(_) >> { float g ->
-        it.g >> g
-      }
-      setB(_) >> { float b ->
-        it.b >> b
-      }
+			setG(_) >> { float g ->
+				it.g >> g
+			}
+			setB(_) >> { float b ->
+				it.b >> b
+			}
 		}
 		float[] newData = new float[3]
 
 		when:
 		newData[0] = r
 		newData[1] = g
-    newData[2] = b
+		newData[2] = b
 		accessor.setValues(color, ColorAccessor.RGB, newData)
 
 		then:
 		color.r == r
 		color.g == g
-    color.b == b
+		color.b == b
 
 		where:
-    r << [0, 0.5f, 1]
-    g << [1, 0, 0.5f]
+		r << [0, 0.5f, 1]
+		g << [1, 0, 0.5f]
 		b << [0.5f, 1, 0]
 	}
 

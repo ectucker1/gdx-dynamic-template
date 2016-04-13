@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Vector2
 import com.squirrelbot.template.components.PositionComponent
 import com.squirrelbot.template.state.State
-import com.squirrelbot.template.tween.ColorAccesor
+import com.squirrelbot.template.tween.ColorAccessor
 import com.squirrelbot.template.tween.MusicAccessor
 import com.squirrelbot.template.tween.PositionComponentAccessor
 import com.squirrelbot.template.tween.Vector2Accessor
@@ -36,7 +36,7 @@ class TweenMethods {
 		Tween.registerAccessor(Music.class, new MusicAccessor());
 		Tween.registerAccessor(Vector2.class, new Vector2Accessor());
 		Tween.registerAccessor(PositionComponent.class, new PositionComponentAccessor());
-		Tween.registerAccessor(Color.class, new ColorAccesor());
+		Tween.registerAccessor(Color.class, new ColorAccessor());
 	}
 
 }

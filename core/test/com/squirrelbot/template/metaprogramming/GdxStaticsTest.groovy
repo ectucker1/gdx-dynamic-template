@@ -8,7 +8,7 @@ import spock.lang.Specification
  */
 class GdxStaticsTest extends Specification {
 
-	def 'properties not null'()
+	def 'test properties not null'()
 	{
 		when:
 		GdxStatics.addToGdx()
