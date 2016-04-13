@@ -1,19 +1,19 @@
 package com.squirrelbot.template.tween
 
-import com.badlogic.gdx.math.Vector2
+import com.squirrelbot.template.components.PositionComponent
 import dorkbox.tweenengine.TweenAccessor
 
 /**
- * Created by Ethan on 4/11/2016.
+ * Created by Ethan on 4/12/2016.
  */
-class Vector2Accesor implements TweenAccessor<Vector2> {
+class PositionComponentAccessor implements TweenAccessor<PositionComponent> {
 
 	public static final int X = 1
 	public static final int Y = 2
 	public static final int XY = 3
 
 	@Override
-	int getValues(Vector2 target, int tweenType, float[] returnValues) {
+	int getValues(PositionComponent target, int tweenType, float[] returnValues) {
 		switch (tweenType) {
 			case X:
 				returnValues[0] = target.x
@@ -32,7 +32,7 @@ class Vector2Accesor implements TweenAccessor<Vector2> {
 	}
 
 	@Override
-	void setValues(Vector2 target, int tweenType, float[] newValues) {
+	void setValues(PositionComponent target, int tweenType, float[] newValues) {
 		switch (tweenType) {
 			case X:
 				target.x = newValues[0]
@@ -49,4 +49,5 @@ class Vector2Accesor implements TweenAccessor<Vector2> {
 				break
 		}
 	}
+
 }

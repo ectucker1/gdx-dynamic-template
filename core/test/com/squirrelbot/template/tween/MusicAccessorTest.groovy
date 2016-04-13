@@ -6,31 +6,31 @@ import spock.lang.Specification
 /**
  * Created by Ethan on 4/12/2016.
  */
-class MusicAccesorTest extends Specification {
+class MusicAccessorTest extends Specification {
 
 	def "returns number of values"()
 	{
 		setup:
-		MusicAccesor accessor = new MusicAccesor()
+		MusicAccessor accessor = new MusicAccessor()
 
 		Music music = Mock(Music)
 		float[] returnData = new float[1]
 
 		expect:
-		accessor.getValues(music, MusicAccesor.VOLUME, returnData) == 1
+		accessor.getValues(music, MusicAccessor.VOLUME, returnData) == 1
 	}
 
 	def "get values gets volume"()
 	{
 		setup:
-		MusicAccesor accessor = new MusicAccesor()
+		MusicAccessor accessor = new MusicAccessor()
 
 		Music music = Mock(Music)
 		float[] returnData = new float[1]
 
 		when:
 		music.volume >> volume
-		accessor.getValues(music, MusicAccesor.VOLUME, returnData)
+		accessor.getValues(music, MusicAccessor.VOLUME, returnData)
 
 		then:
 		returnData[0] == volume
@@ -42,7 +42,7 @@ class MusicAccesorTest extends Specification {
 	def "set values sets volume"()
 	{
 		setup:
-		MusicAccesor accessor = new MusicAccesor()
+		MusicAccessor accessor = new MusicAccessor()
 
 		Music music = Stub(Music) {
 			setVolume(_) >> { float v ->
@@ -53,7 +53,7 @@ class MusicAccesorTest extends Specification {
 
 		when:
 		newData[0] = volume
-		accessor.setValues(music, MusicAccesor.VOLUME, newData)
+		accessor.setValues(music, MusicAccessor.VOLUME, newData)
 
 		then:
 		music.volume == volume

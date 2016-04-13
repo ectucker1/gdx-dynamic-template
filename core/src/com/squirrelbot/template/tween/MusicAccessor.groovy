@@ -6,7 +6,7 @@ import dorkbox.tweenengine.TweenAccessor
 /**
  * Created by Ethan on 4/11/2016.
  */
-class MusicAccesor implements TweenAccessor<Music> {
+class MusicAccessor implements TweenAccessor<Music> {
 
 	public static final int VOLUME = 1
 

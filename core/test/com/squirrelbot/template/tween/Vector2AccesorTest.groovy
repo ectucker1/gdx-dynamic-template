@@ -11,7 +11,7 @@ class Vector2AccesorTest extends Specification {
 	def "returns number of values"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = Mock(Vector2)
 		float[] returnData = new float[2]
@@ -20,23 +20,23 @@ class Vector2AccesorTest extends Specification {
 		accessor.getValues(vector, type, returnData) == number
 
 		where:
-		type | number
-		Vector2Accesor.X | 1
-		Vector2Accesor.X | 1
-		Vector2Accesor.XY | 2
+		type               | number
+		Vector2Accessor.X  | 1
+		Vector2Accessor.X  | 1
+		Vector2Accessor.XY | 2
 	}
 
 	def "get X values equal"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = Mock(Vector2)
 		float[] returnData = new float[2]
 
 		when:
 		vector.x = x
-		accessor.getValues(vector, Vector2Accesor.X, returnData)
+		accessor.getValues(vector, Vector2Accessor.X, returnData)
 
 		then:
 		returnData[0] == x
@@ -48,14 +48,14 @@ class Vector2AccesorTest extends Specification {
 	def "get Y values equal"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = Mock(Vector2)
 		float[] returnData = new float[2]
 
 		when:
 		vector.y = y
-		accessor.getValues(vector, Vector2Accesor.Y, returnData)
+		accessor.getValues(vector, Vector2Accessor.Y, returnData)
 
 		then:
 		returnData[0] == y
@@ -67,7 +67,7 @@ class Vector2AccesorTest extends Specification {
 	def "get XY values equal"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = Mock(Vector2)
 		float[] returnData = new float[2]
@@ -75,7 +75,7 @@ class Vector2AccesorTest extends Specification {
 		when:
 		vector.x = x
 		vector.y = y
-		accessor.getValues(vector, Vector2Accesor.XY, returnData)
+		accessor.getValues(vector, Vector2Accessor.XY, returnData)
 
 		then:
 		returnData[0] == x
@@ -89,14 +89,14 @@ class Vector2AccesorTest extends Specification {
 	def "set values sets X value"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = new Vector2(0, 0)
 		float[] newData = new float[2]
 
 		when:
 		newData[0] = x
-		accessor.setValues(vector, Vector2Accesor.X, newData)
+		accessor.setValues(vector, Vector2Accessor.X, newData)
 
 		then:
 		vector.x == x
@@ -108,14 +108,14 @@ class Vector2AccesorTest extends Specification {
 	def "set values sets Y value"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = new Vector2(0, 0)
 		float[] newData = new float[2]
 
 		when:
 		newData[0] = y
-		accessor.setValues(vector, Vector2Accesor.Y, newData)
+		accessor.setValues(vector, Vector2Accessor.Y, newData)
 
 		then:
 		vector.y == y
@@ -127,7 +127,7 @@ class Vector2AccesorTest extends Specification {
 	def "set values sets XY value"()
 	{
 		setup:
-		Vector2Accesor accessor = new Vector2Accesor()
+		Vector2Accessor accessor = new Vector2Accessor()
 
 		Vector2 vector = new Vector2(0, 0)
 		float[] newData = new float[2]
@@ -135,7 +135,7 @@ class Vector2AccesorTest extends Specification {
 		when:
 		newData[0] = x
 		newData[1] = y
-		accessor.setValues(vector, Vector2Accesor.XY, newData)
+		accessor.setValues(vector, Vector2Accessor.XY, newData)
 
 		then:
 		vector.x == x

@@ -2,12 +2,14 @@ package com.squirrelbot.template.metaprogramming
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.math.Vector2
 import com.squirrelbot.template.components.PositionComponent
 import com.squirrelbot.template.state.State
-import com.squirrelbot.template.tween.MusicAccesor
-import com.squirrelbot.template.tween.PositionComponentAccesor
-import com.squirrelbot.template.tween.Vector2Accesor
+import com.squirrelbot.template.tween.ColorAccesor
+import com.squirrelbot.template.tween.MusicAccessor
+import com.squirrelbot.template.tween.PositionComponentAccessor
+import com.squirrelbot.template.tween.Vector2Accessor
 import dorkbox.tweenengine.BaseTween
 import dorkbox.tweenengine.Tween
 import dorkbox.tweenengine.TweenCallback
@@ -31,9 +33,10 @@ class TweenMethods {
 		})
 		}
 
-		Tween.registerAccessor(Music.class, new MusicAccesor());
-		Tween.registerAccessor(Vector2.class, new Vector2Accesor());
-		Tween.registerAccessor(PositionComponent.class, new PositionComponentAccesor());
+		Tween.registerAccessor(Music.class, new MusicAccessor());
+		Tween.registerAccessor(Vector2.class, new Vector2Accessor());
+		Tween.registerAccessor(PositionComponent.class, new PositionComponentAccessor());
+		Tween.registerAccessor(Color.class, new ColorAccesor());
 	}
 
 }

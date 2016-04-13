@@ -6,12 +6,12 @@ import spock.lang.Specification
 /**
  * Created by Ethan on 4/12/2016.
  */
-class PositionComponentAccesorTest extends Specification {
+class PositionComponentAccessorTest extends Specification {
 
 	def "returns number of values"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = Mock(PositionComponent)
 		float[] returnData = new float[2]
@@ -20,23 +20,23 @@ class PositionComponentAccesorTest extends Specification {
 		accessor.getValues(component, type, returnData) == number
 
 		where:
-		type | number
-		PositionComponentAccesor.X | 1
-		PositionComponentAccesor.X | 1
-		PositionComponentAccesor.XY | 2
+		type                         | number
+		PositionComponentAccessor.X  | 1
+		PositionComponentAccessor.X  | 1
+		PositionComponentAccessor.XY | 2
 	}
 
 	def "get X values equal"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = Mock(PositionComponent)
 		float[] returnData = new float[2]
 
 		when:
 		component.x >> x
-		accessor.getValues(component, PositionComponentAccesor.X, returnData)
+		accessor.getValues(component, PositionComponentAccessor.X, returnData)
 
 		then:
 		returnData[0] == x
@@ -48,14 +48,14 @@ class PositionComponentAccesorTest extends Specification {
 	def "get Y values equal"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = Mock(PositionComponent)
 		float[] returnData = new float[2]
 
 		when:
 		component.y >> y
-		accessor.getValues(component, PositionComponentAccesor.Y, returnData)
+		accessor.getValues(component, PositionComponentAccessor.Y, returnData)
 
 		then:
 		returnData[0] == y
@@ -67,7 +67,7 @@ class PositionComponentAccesorTest extends Specification {
 	def "get XY values equal"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = Mock(PositionComponent)
 		float[] returnData = new float[2]
@@ -75,7 +75,7 @@ class PositionComponentAccesorTest extends Specification {
 		when:
 		component.x >> x
 		component.y >> y
-		accessor.getValues(component, PositionComponentAccesor.XY, returnData)
+		accessor.getValues(component, PositionComponentAccessor.XY, returnData)
 
 		then:
 		returnData[0] == x
@@ -89,14 +89,14 @@ class PositionComponentAccesorTest extends Specification {
 	def "set values sets X value"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = new PositionComponent(0, 0)
 		float[] newData = new float[2]
 
 		when:
 		newData[0] = x
-		accessor.setValues(component, PositionComponentAccesor.X, newData)
+		accessor.setValues(component, PositionComponentAccessor.X, newData)
 
 		then:
 		component.x == x
@@ -108,14 +108,14 @@ class PositionComponentAccesorTest extends Specification {
 	def "set values sets Y value"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = new PositionComponent(0, 0)
 		float[] newData = new float[2]
 
 		when:
 		newData[0] = y
-		accessor.setValues(component, PositionComponentAccesor.Y, newData)
+		accessor.setValues(component, PositionComponentAccessor.Y, newData)
 
 		then:
 		component.y == y
@@ -127,7 +127,7 @@ class PositionComponentAccesorTest extends Specification {
 	def "set values sets XY value"()
 	{
 		setup:
-		PositionComponentAccesor accessor = new PositionComponentAccesor()
+		PositionComponentAccessor accessor = new PositionComponentAccessor()
 
 		PositionComponent component = new PositionComponent(0, 0)
 		float[] newData = new float[2]
@@ -135,7 +135,7 @@ class PositionComponentAccesorTest extends Specification {
 		when:
 		newData[0] = x
 		newData[1] = y
-		accessor.setValues(component, PositionComponentAccesor.XY, newData)
+		accessor.setValues(component, PositionComponentAccessor.XY, newData)
 
 		then:
 		component.x == x
