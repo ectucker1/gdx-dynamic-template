@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.squirrelbot.template.menu.MainMenu
 import com.squirrelbot.template.metaprogramming.GdxStatics
+import com.squirrelbot.template.metaprogramming.TweenMethods
 
 public class AppStart extends ApplicationAdapter {
 
@@ -33,6 +34,7 @@ public class AppStart extends ApplicationAdapter {
 	public static void addMetaprogramming()
 	{
 		GdxStatics.addToGdx()
+		TweenMethods.addToTween()
 	}
 
 }
