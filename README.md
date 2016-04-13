@@ -10,6 +10,7 @@ This project contains code and Gradle build setups I tend to duplicate between l
 - Generic [Ashley](https://github.com/libgdx/ashley/wiki) components & systems
 - TweenAccessors for components, music, and vectors
 - Dynamic properties on GDX class for tweens, states, json, and yaml
+- CC0 License!
 
 ## Libraries Included
 Libraries for production
@@ -25,3 +26,6 @@ Libraries for testing
 - [JUnit 4](http://junit.org/junit4/)
 - [cglib](https://github.com/cglib/cglib)
 - [objenesis](http://objenesis.org/)
+
+## License
+The whole template is licensed under CC0, as there's really nothing here you couldn't replicate in an hour. Assets included are also CC0 licensed by their respective creators.
