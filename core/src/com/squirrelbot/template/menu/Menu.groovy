@@ -2,6 +2,8 @@ package com.squirrelbot.template.menu
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator
@@ -21,9 +23,11 @@ abstract class Menu implements State {
 	Stage stage
 	Table table
 
-	Skin skin;
+	Skin skin
 
 	Music music
+
+	Color background = Color.WHITE
 
 	public Menu(Music music)
 	{
@@ -32,14 +36,14 @@ abstract class Menu implements State {
 
 		FreeTypeFontGenerator.FreeTypeFontParameter fontParam = new FreeTypeFontGenerator.FreeTypeFontParameter()
 		fontParam.size = 32
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/ui/default/default.otf"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("data/ui/common/default.otf"));
 		BitmapFont font = generator.generateFont(fontParam);
 		generator.dispose()
 
 		skin = new Skin()
-		skin.addRegions(new TextureAtlas(Gdx.files.internal("data/ui/default/uiskin.atlas")))
+		skin.addRegions(new TextureAtlas(Gdx.files.internal("data/ui/themes/ui-blue.atlas")))
 		skin.add("default-font", font)
-		skin.load(Gdx.files.internal("data/ui/default/uiskin.json"))
+		skin.load(Gdx.files.internal("data/ui/common/uiskin.json"))
 
 		table = new Table()
 		table.setFillParent(true)
@@ -66,6 +70,9 @@ abstract class Menu implements State {
 
 	@Override
 	void render(float delta) {
+		Gdx.gl.glClearColor(background.r, background.g, background.b, background.a)
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		stage.act()
 		stage.draw()
 	}

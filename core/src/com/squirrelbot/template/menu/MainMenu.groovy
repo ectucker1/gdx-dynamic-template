@@ -24,7 +24,7 @@ class MainMenu extends Menu {
 				println "Switch to game here"
 			}
 		});
-		table.add(play).fillX().row()
+		table.add(play).fillX().pad(10).row()
 
 		TextButton how = new TextButton("How to Play", skin);
 		how.addListener(new ClickListener(){
@@ -33,7 +33,16 @@ class MainMenu extends Menu {
 				Gdx.states.switchState(new HowMenu(music))
 			}
 		});
-		table.add(how).fillX().row()
+		table.add(how).fillX().pad(10).row()
+
+		TextButton test = new TextButton("Test Skin", skin);
+		test.addListener(new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.states.switchState(new TestMenu(music))
+			}
+		});
+		table.add(test).fillX().pad(10).row()
 	}
 
 }
