@@ -1,14 +1,14 @@
 # gdx-dynamic-template
 A Groovy template for libGDX projects.
 
-This project contains code and Gradle build setups I tend to duplicate between libGDX projects. This is mostly intended for my own use, and uses very specific libraries and architecture. Some of you may find it too restricting, but others may agree with my descisions.
+This project contains code and Gradle build setups I tend to duplicate between libGDX projects. This is mostly intended for my own use, and uses very specific libraries and architecture. Some of you may find it too restricting, but others may agree with my decisions.
 
 ## Features
 - Preconfigured unit testing setup with [Spock](https://github.com/spockframework/spock)
 - Prebuilt state machine
 - Prebuilt menu states
 - Generic [Ashley](https://github.com/libgdx/ashley/wiki) components & systems
-- TweenAccessors for components, music, and vectors
+- TweenAccessors for components, music, vectors, and colors
 - Dynamic properties on GDX class for tweens, states, json, and yaml
 - CC0 License!
 
@@ -30,4 +30,4 @@ Libraries for testing
 Exact library versions can be found in the project build.gradle file.
 
 ## License
-The whole template is licensed under CC0, as there's really nothing here you couldn't replicate in an hour. Assets included are also CC0 licensed by their respective creators.
+The whole template is licensed under CC0, as there's really nothing here you couldn't replicate in an hour or two. Assets included are also CC0 licensed by their respective creators.
