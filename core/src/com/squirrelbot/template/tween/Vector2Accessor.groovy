@@ -2,10 +2,12 @@ package com.squirrelbot.template.tween
 
 import com.badlogic.gdx.math.Vector2
 import dorkbox.tweenengine.TweenAccessor
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/11/2016.
  */
+@CompileStatic
 class Vector2Accessor implements TweenAccessor<Vector2> {
 
 	public static final int X = 1

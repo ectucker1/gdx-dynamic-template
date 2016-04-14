@@ -7,10 +7,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.squirrelbot.template.components.Mappers
 import com.squirrelbot.template.components.PositionComponent
 import com.squirrelbot.template.components.TextureRegionComponent
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 3/19/2016.
  */
+@CompileStatic
 class RenderSystem extends IteratingSystem {
 
 	SpriteBatch batch

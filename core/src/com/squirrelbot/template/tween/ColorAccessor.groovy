@@ -2,10 +2,12 @@ package com.squirrelbot.template.tween
 
 import com.badlogic.gdx.graphics.Color
 import dorkbox.tweenengine.TweenAccessor
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/13/2016.
  */
+@CompileStatic
 class ColorAccessor implements TweenAccessor<Color> {
 
 	public static final int R= 1

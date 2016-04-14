@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.squirrelbot.template.state.State
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/10/2016.
@@ -82,7 +83,6 @@ abstract class Menu implements State {
 		if(width != oldWidth || height != oldHeight)
 		{
 			Gdx.states.switchState(this.class.newInstance(music))
-			println "Resized"
 		}
 	}
 

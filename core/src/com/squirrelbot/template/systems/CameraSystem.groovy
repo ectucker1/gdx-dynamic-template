@@ -7,10 +7,12 @@ import com.badlogic.gdx.graphics.Camera
 import com.squirrelbot.template.components.CameraFollowComponent
 import com.squirrelbot.template.components.Mappers
 import com.squirrelbot.template.components.PositionComponent
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/9/2016.
  */
+@CompileStatic
 class CameraSystem extends IteratingSystem {
 
 	Camera camera

@@ -2,10 +2,12 @@ package com.squirrelbot.template.tween
 
 import com.squirrelbot.template.components.PositionComponent
 import dorkbox.tweenengine.TweenAccessor
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/12/2016.
  */
+@CompileStatic
 class PositionComponentAccessor implements TweenAccessor<PositionComponent> {
 
 	public static final int X = 1

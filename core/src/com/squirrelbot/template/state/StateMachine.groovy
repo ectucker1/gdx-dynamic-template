@@ -1,8 +1,11 @@
 package com.squirrelbot.template.state
 
+import groovy.transform.CompileStatic
+
 /**
  * Created by Ethan on 4/10/2016.
  */
+@CompileStatic
 class StateMachine {
 
 	State currentState = null

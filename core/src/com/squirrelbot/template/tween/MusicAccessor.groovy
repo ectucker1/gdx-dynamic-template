@@ -2,10 +2,12 @@ package com.squirrelbot.template.tween
 
 import com.badlogic.gdx.audio.Music
 import dorkbox.tweenengine.TweenAccessor
+import groovy.transform.CompileStatic
 
 /**
  * Created by Ethan on 4/11/2016.
  */
+@CompileStatic
 class MusicAccessor implements TweenAccessor<Music> {
 
 	public static final int VOLUME = 1
